@@ -7,7 +7,6 @@
 */
 
 #include <iostream>
-#include <stdlib.h>
 using namespace std;
 
 void playArea(char play_area[3][3]);
@@ -20,7 +19,7 @@ int main()
     int chosenSquare;
 
     char boardArray[3][3] = { '0','1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' };
-    bool check_input[9]{ 0,0, 0, 0, 0, 0, 0, 0, 0 };
+    bool check_input[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     playArea(boardArray);
 
@@ -28,13 +27,13 @@ int main()
     {
         cout << "Player X: Enter a number between  0 and 8: ";
         cin >> chosenSquare;
-        if (chosenSquare < 0 || chosenSquare > 9 || check_input[chosenSquare] == true)
+        if (chosenSquare < 0 || chosenSquare >= 9 || check_input[chosenSquare] == true)
         {
             do
             {
                 cout << "Not a valid choice. Try again. \nPlayer X : Enter a number between  0 and 8 : ";
                 cin >> chosenSquare;
-            } while (chosenSquare < 0 || chosenSquare > 9 || check_input[chosenSquare] == true);
+            } while (chosenSquare < 0 || chosenSquare >= 9 || check_input[chosenSquare] == true);
         }
         check_input[chosenSquare] = true;
         player_x(boardArray, chosenSquare);
@@ -54,13 +53,13 @@ int main()
 
         cout << "Player O: Enter a number between  0 and 8: ";
         cin >> chosenSquare;
-        if (chosenSquare < 0 || chosenSquare > 9 || check_input[chosenSquare] == true)
+        if (chosenSquare < 0 || chosenSquare >= 9 || check_input[chosenSquare] == true)
         {
             do
             {
                 cout << "Not a valid choice. Try again. \nPlayer O : Enter a number between  0 and 8 : ";
                 cin >> chosenSquare;
-            } while (chosenSquare < 0 || chosenSquare > 9 || check_input[chosenSquare] == true);
+            } while (chosenSquare < 0 || chosenSquare >= 9 || check_input[chosenSquare] == true);
         }
         check_input[chosenSquare] = true;
         player_o(boardArray, chosenSquare);
@@ -149,51 +148,62 @@ int winner_check(char play_area[3][3])
     else
         return -1;
 
+
+
 }
 
 void player_x(char play_area[3][3], int choose)
 {
     const char PLAYER_X = 'X';
-    if (choose == 0)
-        play_area[0][0] = PLAYER_X;
-    else if (choose == 1)
-        play_area[0][1] = PLAYER_X;
-    else if (choose == 2)
-        play_area[0][2] = PLAYER_X;
-    else if (choose == 3)
-        play_area[1][0] = PLAYER_X;
-    else if (choose == 4)
-        play_area[1][1] = PLAYER_X;
-    else if (choose == 5)
-        play_area[1][2] = PLAYER_X;
-    else if (choose == 6)
-        play_area[2][0] = PLAYER_X;
-    else if (choose == 7)
-        play_area[2][1] = PLAYER_X;
-    else if (choose == 8)
-        play_area[2][2] = PLAYER_X;
 
+    /*using a relation*/
+    play_area[choose / 3][choose - ((choose / 3) * 3)] = PLAYER_X;
+
+    /*with only if else statements*/
+    //if (choose == 0)
+    //    play_area[0][0] = PLAYER_X;
+    //else if (choose == 1)
+    //    play_area[0][1] = PLAYER_X;
+    //else if (choose == 2)
+    //    play_area[0][2] = PLAYER_X;
+    //else if (choose == 3)
+    //    play_area[1][0] = PLAYER_X;
+    //else if (choose == 4)
+    //    play_area[1][1] = PLAYER_X;
+    //else if (choose == 5)
+    //    play_area[1][2] = PLAYER_X;
+    //else if (choose == 6)
+    //    play_area[2][0] = PLAYER_X;
+    //else if (choose == 7)
+    //    play_area[2][1] = PLAYER_X;
+    //else if (choose == 8)
+    //    play_area[2][2] = PLAYER_X;
 }
 
 void player_o(char play_area[3][3], int choose)
 {
     const char PLAYER_O = 'O';
-    if (choose == 0)
-        play_area[0][0] = PLAYER_O;
-    else if (choose == 1)
-        play_area[0][1] = PLAYER_O;
-    else if (choose == 2)
-        play_area[0][2] = PLAYER_O;
-    else if (choose == 3)
-        play_area[1][0] = PLAYER_O;
-    else if (choose == 4)
-        play_area[1][1] = PLAYER_O;
-    else if (choose == 5)
-        play_area[1][2] = PLAYER_O;
-    else if (choose == 6)
-        play_area[2][0] = PLAYER_O;
-    else if (choose == 7)
-        play_area[2][1] = PLAYER_O;
-    else if (choose == 8)
-        play_area[2][2] = PLAYER_O;
+
+    /*using a relation*/
+    play_area[choose / 3][choose - ((choose / 3) * 3)] = PLAYER_O;
+
+    /*with only if else statements*/
+    //if (choose == 0)
+    //    play_area[0][0] = PLAYER_O;
+    //else if (choose == 1)
+    //    play_area[0][1] = PLAYER_O;
+    //else if (choose == 2)
+    //    play_area[0][2] = PLAYER_O;
+    //else if (choose == 3)
+    //    play_area[1][0] = PLAYER_O;
+    //else if (choose == 4)
+    //    play_area[1][1] = PLAYER_O;
+    //else if (choose == 5)
+    //    play_area[1][2] = PLAYER_O;
+    //else if (choose == 6)
+    //    play_area[2][0] = PLAYER_O;
+    //else if (choose == 7)
+    //    play_area[2][1] = PLAYER_O;
+    //else if (choose == 8)
+    //    play_area[2][2] = PLAYER_O;
 }
