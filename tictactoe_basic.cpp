@@ -158,26 +158,6 @@ void player_x(char play_area[3][3], int choose)
 
     /*using a relation*/
     play_area[choose / 3][choose - ((choose / 3) * 3)] = PLAYER_X;
-
-    /*with only if else statements*/
-    //if (choose == 0)
-    //    play_area[0][0] = PLAYER_X;
-    //else if (choose == 1)
-    //    play_area[0][1] = PLAYER_X;
-    //else if (choose == 2)
-    //    play_area[0][2] = PLAYER_X;
-    //else if (choose == 3)
-    //    play_area[1][0] = PLAYER_X;
-    //else if (choose == 4)
-    //    play_area[1][1] = PLAYER_X;
-    //else if (choose == 5)
-    //    play_area[1][2] = PLAYER_X;
-    //else if (choose == 6)
-    //    play_area[2][0] = PLAYER_X;
-    //else if (choose == 7)
-    //    play_area[2][1] = PLAYER_X;
-    //else if (choose == 8)
-    //    play_area[2][2] = PLAYER_X;
 }
 
 void player_o(char play_area[3][3], int choose)
@@ -186,24 +166,4 @@ void player_o(char play_area[3][3], int choose)
 
     /*using a relation*/
     play_area[choose / 3][choose - ((choose / 3) * 3)] = PLAYER_O;
-
-    /*with only if else statements*/
-    //if (choose == 0)
-    //    play_area[0][0] = PLAYER_O;
-    //else if (choose == 1)
-    //    play_area[0][1] = PLAYER_O;
-    //else if (choose == 2)
-    //    play_area[0][2] = PLAYER_O;
-    //else if (choose == 3)
-    //    play_area[1][0] = PLAYER_O;
-    //else if (choose == 4)
-    //    play_area[1][1] = PLAYER_O;
-    //else if (choose == 5)
-    //    play_area[1][2] = PLAYER_O;
-    //else if (choose == 6)
-    //    play_area[2][0] = PLAYER_O;
-    //else if (choose == 7)
-    //    play_area[2][1] = PLAYER_O;
-    //else if (choose == 8)
-    //    play_area[2][2] = PLAYER_O;
 }
